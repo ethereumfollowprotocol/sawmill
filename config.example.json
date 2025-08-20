@@ -1,0 +1,77 @@
+{
+  "projects": [
+    {
+      "name": "my-web-app",
+      "railwayToken": "YOUR_RAILWAY_PROJECT_TOKEN_OR_ENV_VAR",
+      "logRetentionHours": 6,
+      "analysisPrompt": "Focus on HTTP errors, database connection issues, and performance degradation patterns.",
+      "services": [
+        {
+          "name": "api",
+          "githubRepo": {
+            "owner": "your-org",
+            "repo": "my-web-app",
+            "defaultAssignees": ["dev-lead"],
+            "labels": ["bug", "production", "api"]
+          }
+        },
+        {
+          "name": "worker",
+          "githubRepo": {
+            "owner": "your-org", 
+            "repo": "my-web-app",
+            "defaultAssignees": ["backend-team"],
+            "labels": ["bug", "production", "worker"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "data-pipeline",
+      "railwayToken": "YOUR_RAILWAY_PROJECT_TOKEN_OR_ENV_VAR",
+      "logRetentionHours": 12,
+      "analysisPrompt": "Look for data processing errors, pipeline failures, and data quality issues.",
+      "services": [
+        {
+          "name": "processor",
+          "githubRepo": {
+            "owner": "your-org",
+            "repo": "data-pipeline",
+            "defaultAssignees": ["data-team"],
+            "labels": ["bug", "production", "data"]
+          }
+        }
+      ]
+    }
+  ],
+  "alerts": {
+    "severityThreshold": "medium",
+    "telegram": {
+      "botToken": "YOUR_TELEGRAM_BOT_TOKEN_OR_ENV_VAR",
+      "chatId": "YOUR_TELEGRAM_CHAT_ID",
+      "enabled": true
+    },
+    "email": {
+      "smtpHost": "smtp.gmail.com",
+      "smtpPort": 587,
+      "username": "your-email@gmail.com",
+      "password": "YOUR_EMAIL_PASSWORD_OR_ENV_VAR",
+      "to": ["team@company.com", "devops@company.com"],
+      "enabled": true
+    },
+    "github": {
+      "token": "YOUR_GITHUB_TOKEN_OR_ENV_VAR",
+      "enabled": true,
+      "createIssueThreshold": "medium",
+      "deduplicationWindow": 24
+    }
+  },
+  "anthropic": {
+    "apiKey": "YOUR_ANTHROPIC_API_KEY_OR_ENV_VAR",
+    "model": "claude-3-5-sonnet-20241022"
+  },
+  "schedule": {
+    "enabled": true,
+    "interval": "*/15 * * * *"
+  }
+}
