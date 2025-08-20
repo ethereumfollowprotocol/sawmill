@@ -1,0 +1,68 @@
+{
+  "projects": [
+    {
+      "name": "follow-bot",
+      "railwayToken": "YOUR_RAILWAY_PROJECT_TOKEN_OR_ENV_VAR",
+      "logRetentionHours": 168,
+      "analysisPrompt": "Focus on HTTP errors, database connection issues, and performance degradation patterns in Railway deployment logs.",
+      "services": [
+        {
+          "name": "efp-follow-bot",
+          "githubRepo": {
+            "owner": "ethereumfollowprotocol",
+            "repo": "follow-bot",
+            "defaultAssignees": ["0xthrpw"],
+            "labels": ["bug", "production", "railway"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "efp",
+      "railwayToken": "YOUR_RAILWAY_PROJECT_TOKEN_OR_ENV_VAR",
+      "logRetentionHours": 168,
+      "analysisPrompt": "Focus on HTTP errors, database connection issues, and performance degradation patterns in Railway deployment logs.",
+      "services": [
+        {
+          "name": "services",
+          "githubRepo": {
+            "owner": "ethereumfollowprotocol",
+            "repo": "services",
+            "defaultAssignees": ["0xthrpw"],
+            "labels": ["bug", "production", "railway"]
+          }
+        }
+      ]
+    }
+  ],
+  "alerts": {
+    "severityThreshold": "medium",
+    "telegram": {
+      "botToken": "YOUR_TELEGRAM_BOT_TOKEN_OR_ENV_VAR",
+      "chatId": "YOUR_TELEGRAM_CHAT_ID",
+      "enabled": true
+    },
+    "email": {
+      "smtpHost": "smtp.brevo.com",
+      "smtpPort": 587,
+      "username": "YOUR_EMAIL_USERNAME",
+      "password": "YOUR_EMAIL_PASSWORD",
+      "to": ["0xthrpw@ethfollow.xyz"],
+      "enabled": false
+    },
+    "github": {
+      "token": "YOUR_GITHUB_TOKEN_OR_ENV_VAR",
+      "enabled": true,
+      "createIssueThreshold": "medium",
+      "deduplicationWindow": 24
+    }
+  },
+  "anthropic": {
+    "apiKey": "YOUR_ANTHROPIC_API_KEY_OR_ENV_VAR",
+    "model": "claude-3-5-sonnet-20241022"
+  },
+  "schedule": {
+    "enabled": true,
+    "interval": "*/2 * * * *"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "projects": [
+    {
+      "name": "my-web-app",
+      "railwayToken": "YOUR_RAILWAY_PROJECT_TOKEN_OR_ENV_VAR",
+      "logRetentionHours": 6,
+      "analysisPrompt": "Focus on HTTP errors, database connection issues, and performance degradation patterns in Railway deployment logs.",
+      "services": [
+        {
+          "name": "web",
+          "githubRepo": {
+            "owner": "your-org",
+            "repo": "my-web-app",
+            "defaultAssignees": ["dev-lead"],
+            "labels": ["bug", "production", "railway"]
+          }
+        },
+        {
+          "name": "api",
+          "githubRepo": {
+            "owner": "your-org", 
+            "repo": "my-web-app",
+            "defaultAssignees": ["backend-team"],
+            "labels": ["bug", "production", "api", "railway"]
+          }
+        }
+      ]
+    }
+  ],
+  "alerts": {
+    "severityThreshold": "medium",
+    "telegram": {
+      "botToken": "YOUR_TELEGRAM_BOT_TOKEN_OR_ENV_VAR",
+      "chatId": "YOUR_TELEGRAM_CHAT_ID",
+      "enabled": true
+    },
+    "email": {
+      "smtpHost": "smtp.gmail.com",
+      "smtpPort": 587,
+      "username": "alerts@yourcompany.com",
+      "password": "YOUR_EMAIL_PASSWORD_OR_ENV_VAR",
+      "to": ["devops@yourcompany.com"],
+      "enabled": true
+    },
+    "github": {
+      "token": "YOUR_GITHUB_TOKEN_OR_ENV_VAR",
+      "enabled": true,
+      "createIssueThreshold": "medium",
+      "deduplicationWindow": 24
+    }
+  },
+  "anthropic": {
+    "apiKey": "YOUR_ANTHROPIC_API_KEY_OR_ENV_VAR",
+    "model": "claude-3-5-sonnet-20241022"
+  },
+  "schedule": {
+    "enabled": true,
+    "interval": "*/15 * * * *"
+  }
+}
