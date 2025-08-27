@@ -4,10 +4,10 @@ on:
     types: [opened, synchronize, reopened]
 
 permissions:
-  contents: read           # Read repository contents
-  pull-requests: write     # Write PR comments and reviews
-  issues: write           # Write issue comments (needed for some features)
-  actions: read           # Read workflow information
+  contents: read
+  pull-requests: write
+  issues: write
+  actions: read
 
 jobs:
   ai-review:
