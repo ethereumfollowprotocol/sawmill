@@ -3,6 +3,12 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+permissions:
+  contents: read           # Read repository contents
+  pull-requests: write     # Write PR comments and reviews
+  issues: write           # Write issue comments (needed for some features)
+  actions: read           # Read workflow information
+
 jobs:
   ai-review:
     uses: ethereumfollowprotocol/workflow-automation/.github/workflows/pr-review.yml@v1.0.1

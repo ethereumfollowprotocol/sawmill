@@ -9,6 +9,12 @@ on:
   issues:
     types: [opened]
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  actions: read
+
 jobs:
   ai-response:
     uses: ethereumfollowprotocol/workflow-automation/.github/workflows/issue-response.yml@v1
