@@ -113,7 +113,7 @@ Here are the logs to analyze:`;
       const formattedLogs = this.formatLogsForAnalysis(logs);
       
       // Limit log size to avoid token limits
-      const maxLogLength = 50000; // Approximate token limit
+      const maxLogLength = 25000; // Approximate token limit
       const truncatedLogs = formattedLogs.length > maxLogLength 
         ? formattedLogs.substring(0, maxLogLength) + '\n\n... (logs truncated)'
         : formattedLogs;
