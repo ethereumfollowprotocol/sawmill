@@ -5,10 +5,9 @@ on:
 
 jobs:
   ai-review:
-    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/pr-review.yml@v1
+    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/pr-review.yml@v1.0.0
     with:
-      config-profile: "default"  # Change to: frontend, backend, security, experimental
-      repository-config: ".github/ai-review-config.json"
+      config-profile: "default"
       enable-security-review: true
       enable-quality-review: true
       enable-documentation-review: true
