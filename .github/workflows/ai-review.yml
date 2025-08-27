@@ -5,7 +5,7 @@ on:
 
 jobs:
   ai-review:
-    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/pr-review.yml@v1.0.0
+    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/pr-review.yml@v1
     with:
       config-profile: "default"
       enable-security-review: true
