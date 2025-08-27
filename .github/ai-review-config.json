@@ -1,0 +1,17 @@
+{
+  "model": "claude-3-5-sonnet-20241022",
+  "review_rules": {
+    "min_test_coverage": 85,
+    "max_complexity": 8,
+    "max_function_length": 30
+  },
+  "security_rules": {
+    "check_sql_injection": true,
+    "check_xss": true,
+    "check_auth": true
+  },
+  "response_settings": {
+    "tone": "friendly",
+    "include_code_examples": true
+  }
+}
