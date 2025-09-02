@@ -9,17 +9,13 @@ on:
   issues:
     types: [opened]
 
-permissions:
-  contents: read
-  issues: write
-  pull-requests: write
-  actions: read
-
 jobs:
   ai-response:
-    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/issue-response.yml@v1.0.2
+    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/issue-response.yml@v1.0.7
     with:
-      config-profile: "default"
+      config-profile: "backend"
+      repository-config: ".github/ai-review-config.json"
+      claude-code-action-ref: "0xthrpw/claude-code-action@v0.0.1"
       bot-mention: "@efp-dev-ops"
       enable-auto-labeling: true
       enable-escalation: true
