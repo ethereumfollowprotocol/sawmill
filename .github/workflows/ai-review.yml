@@ -3,17 +3,13 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-permissions:
-  contents: read
-  pull-requests: write
-  issues: write
-  actions: read
-
 jobs:
   ai-review:
-    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/pr-review.yml@v1.0.2
+    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/pr-review.yml@v1.0.7
     with:
-      config-profile: "default"
+      config-profile: "backend"
+      repository-config: ".github/ai-review-config.json"
+      claude-code-action-ref: "0xthrpw/claude-code-action@v0.0.1"
       enable-security-review: true
       enable-quality-review: true
       enable-documentation-review: true
