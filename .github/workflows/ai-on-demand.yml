@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   ai-response:
-    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/issue-response.yml@v1.0.8
+    uses: ethereumfollowprotocol/workflow-automation/.github/workflows/issue-response.yml@v1.0.9
     with:
       config-profile: "backend"
       bot-mention: "@efp-dev-ops"
